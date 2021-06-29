@@ -5,6 +5,7 @@
 #I am not responsible for any anything that happens as a result of using this script
 #Before using this script , make sure you are OK with the codes 
 
+
 from Bio import SeqIO
 import os
 from glob import glob
@@ -20,7 +21,10 @@ sequences=[]
 
 
 def extract_sequence(genbank_file,gene_of_interest):
-    '
+    '''This script will extract rpoB gene sequences from genbank files
+    All the extracted sequences will be placed into a single multi-fasta file.
+    The multi-fasta file will be found in the same directory as your genbank files'''
+    
     gb_obj=SeqIO.read(genbank_file,'gb')
     genes=[]
     for feature in gb_obj.features:
