@@ -5,10 +5,10 @@
 #I am not responsible for any anything that happens as a result of using this script
 #Before using this script , make sure you are OK with the codes 
 
-
 from Bio import SeqIO
 import os
 from glob import glob
+
 import sys
 
 gene_of_interest='rpoB'
@@ -24,7 +24,6 @@ def extract_sequence(genbank_file,gene_of_interest):
     '''This script will extract rpoB gene sequences from genbank files
     All the extracted sequences will be placed into a single multi-fasta file.
     The multi-fasta file will be found in the same directory as your genbank files'''
-    
     gb_obj=SeqIO.read(genbank_file,'gb')
     genes=[]
     for feature in gb_obj.features:
@@ -35,21 +34,33 @@ def extract_sequence(genbank_file,gene_of_interest):
         if 'gene' in gene.qualifiers.keys():
             if gene_of_interest == gene.qualifiers['gene'][0]:
                 hits.append(gene)
-                print('gene found')
-    rpoB=hits[0]
-    extracted_sequence=rpoB.extract(gb_obj)
+               
+    if len(hits)==0:
+        return None
+    else:
+        rpoB=hits[0]
+        extracted_sequence=rpoB.extract(gb_obj)
     
-    return extracted_sequence
+        return extracted_sequence
+
 
 for file_ in file_names:
     sequence=extract_sequence(file_,gene_of_interest)
     name=os.path.split(file_)[-1]
     name=name.strip('.gb')
-    sequence.id=name
-    sequence.description=''
-    sequences.append(sequence)
-    
+
+    if not sequence:
+     
+        print('gene not found for sample %s'%name)
+    else:
+        print('gene found in sample %s'%name)
+        sequence.id=name
+        sequence.description=''
+        sequences.append(sequence)
+
+
 outputfile='%s/rpoB.fasta'%file_directory
 SeqIO.write(sequences,outputfile,'fasta')
+print('file has been generated in the sequence directory')
 
     
