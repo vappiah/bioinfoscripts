@@ -6,7 +6,7 @@ if [ "$help_" == "help" ] || [ "$help_" == "--help" ]
 then
 echo "welcome to the sra data downloader wrapper script"
 echo "script usage:"
-echo "  ./sra_data_downloader.sh <id_file> <fasterq-dump options"
+echo "  ./sra_data_downloader.sh <id_file> <fasterq-dump options>"
 echo "     or      "
 echo "  ./sra_data_downloader.sh <id_file> t <threads> <fasterq-dump options>"
 echo " "
