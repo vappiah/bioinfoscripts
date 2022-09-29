@@ -1,3 +1,5 @@
+
+mkdir scripts
 wget https://github.com/ParBLiSS/FastANI/releases/download/v1.33/fastANI-Linux64-v1.33.zip
 unzip fastANI-Linux64-v1.33.zip -d /home/manager/bacterial_genomics/scripts
 
