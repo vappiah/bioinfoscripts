@@ -2,7 +2,8 @@
 mkdir scripts
 mkdir tmp
 wget https://github.com/ParBLiSS/FastANI/releases/download/v1.33/fastANI-Linux64-v1.33.zip
-unzip fastANI-Linux64-v1.33.zip -d /home/manager/bacterial_genomics/scripts
+unzip fastANI-Linux64-v1.33.zip 
+mv fastANI /home/manager/bacterial_genomics/scripts
 
 echo "export PATH=$PATH:/home/manager/bacterial_genomics/scripts" >> $HOME/.bashrc 
 source $HOME/.bashrc
