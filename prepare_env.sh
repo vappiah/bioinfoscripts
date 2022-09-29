@@ -21,5 +21,5 @@ conda config --add channels conda-forge
 conda config --add channels bioconda
 
 conda env create -f environment.yaml
-conda create -n prokka -c bioconda -c conda-forge -c defaults prokka
+conda create -n prokka -c bioconda -c conda-forge -c defaults -q prokka
 
