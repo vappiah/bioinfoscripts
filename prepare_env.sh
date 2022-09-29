@@ -18,6 +18,6 @@ source /home/manager/.bashrc
 conda config --add channels conda-forge
 conda config --add channels bioconda
 
-conda env create -f environment.yaml
+conda env create -f environment.yml
 conda create -n prokka -c bioconda -c conda-forge -c defaults -q prokka
 
