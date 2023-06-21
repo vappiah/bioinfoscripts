@@ -31,7 +31,7 @@ for currentcontig in contignames:
         phenotype=subinfo[3]
 
         qualifiers= {'source':seqtype,'score':perc_identity,
-                     'Phenotype':phenotype,'ID':currentcontig}
+                     'Phenotype':phenotype,'ID':subinfo[10]}
 
         if start > end:
             tmp=start
